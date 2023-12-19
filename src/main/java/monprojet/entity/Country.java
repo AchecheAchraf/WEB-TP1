@@ -2,6 +2,7 @@ package monprojet.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -23,4 +24,10 @@ public class Country {
     @Column(unique=true)
     @NonNull
     private String name;
+
+    // Dans la classe "Country.java"
+    @OneToMany(mappedBy="country")
+    // Essayer sans "mappedBy" pour voir le schémma relationnel généré
+    // @OneToMany
+    private List<City> cities = new ArrayList<>();
 }
